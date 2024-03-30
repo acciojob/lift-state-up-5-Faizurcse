@@ -1,13 +1,22 @@
 
-import React from "react";
-import './../styles/App.css';
+import React, { useState } from 'react';
+import LoginForm from './LoginForm';
 
-const App = () => {
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
+    <>
+    <h1>Parent Component</h1>
     <div>
-        {/* Do not remove the main div */}
+      {isLoggedIn ? <h2> You are logged in !</h2> :  <LoginForm onLogin={handleLogin} />}
     </div>
-  )
+          </>
+  );
 }
 
-export default App
+export default App;
